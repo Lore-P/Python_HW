@@ -5,6 +5,7 @@ fib_index = 3
 range = []
 
 if x <= fib_index:
+    range[i] = range.append(x)
     
 for x in range:
     temp = []
