@@ -6,8 +6,6 @@ phone_book_no = {4725692 : "kelly", 542652 : "lore"}
 #Create all functions
 
 def add_account(name, number):
-    name = input_list[1]
-    number = input_list[2]
     phone_book[name] = number
     phone_book_no[number] = name
     print("The account for %s with number %011d has been added." % (name, int(number)))
