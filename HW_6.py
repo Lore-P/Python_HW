@@ -12,30 +12,30 @@ while True:
     if command == "add":
         name = input_list[1]
         number = input_list[2]
-        phone_book[name] = int(number)
+        phone_book[name] = number
+        phone_book_no[number] = name
         print("The account for %s with number %011d has been added." % (name, int(number)))
     elif command == "query":
-        name = ""
-        number = 0
         number = input_list[1]
         if number.isdigit():
-            name_for_no = ""
-            list_numbers = phone_book.items()
-            for new_number in list_numbers:
-                if new_number[1] == int(number):
-                    name_for_no = new_number
+            number = int(input_list[1])
+            name = phone_book_no.get(number,"Missing")
 
-            if name_for_no == "":
-                print("This number is not included in the phonebook. Please try again.")
+            if name == "Missing":
+                print("This account is not included in the phonebook, please try again.")
+            else:
+                print("The number %011d is linked to %s." % (number, name))
 
-            print("The number %011d is linked to %s." % (int(number), name_for_no))
+
         else:
-            phone_book.get(name,"This name is not included in the phonebook"
-            )
             name = input_list[1]
-            number = phone_book[name]
-            print("The number %011d is linked to %s." % (int(number), name))
+            name_no = phone_book.get(name,"Missing")
+
+            if name_no == "Missing":
+                print("This account is not included in the phonebook, please try again.")
+            else:
+                print("The number %s is linked to %s." % (name_no, name))
     else:
-        print("This account is not included in the phonebook, please try again.")
+        print("This action is invalid, please try again.")
 
 #print(phone_book)
